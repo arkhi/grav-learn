@@ -3,7 +3,7 @@ title: Page Collections
 page-toc:
   active: true
 taxonomy:
-    category: docs
+  category: docs
 ---
 
 Collections have grown considerably since the early betas of Grav. We started off with a very limited set of page-based collections, but with the help of our community, we have increased these capabilities to make them even more powerful!  So much so that they now have their own section in the documentation.
@@ -26,12 +26,12 @@ An example collection defined in the page's frontmatter:
 
 [prism classes="language-yaml line-numbers"]
 content:
-    items: '@self.children'
-    order:
-        by: date
-        dir: desc
-    limit: 10
-    pagination: true
+  items: '@self.children'
+  order:
+    by: date
+    dir: desc
+  limit: 10
+  pagination: true
 [/prism]
 
 The `content.items` value in the page's frontmatter tells Grav to gather up a collection of items and information passed to this defines how the collection is to be built.
@@ -44,8 +44,8 @@ When this collection is defined in the header, Grav creates a collection **page.
 
 [prism classes="language-twig line-numbers"]
 {% for p in page.collection %}
-<h2>{{ p.title }}</h2>
-{{ p.summary }}
+    <h2>{{ p.title }}</h2>
+    {{ p.summary }}
 {% endfor %}
 [/prism]
 
@@ -55,8 +55,8 @@ You can also include an order parameter to change the default ordering of pages:
 
 [prism classes="language-twig line-numbers"]
 {% for p in page.collection.order('folder','asc') %}
-<h2>{{ p.title }}</h2>
-{{ p.summary }}
+    <h2>{{ p.title }}</h2>
+    {{ p.summary }}
 {% endfor %}
 [/prism]
 
@@ -92,7 +92,7 @@ To tell Grav that a specific page should be a listing page and contain child-pag
 
 ! This document outlines the use of `@page`, `@taxonomy.category` etc, but a more YAML-safe alternative format is `page@`, `taxonomy@.category`.  All the `@` commands can be written in either prefix or postfix format.
 
-We will cover these more in detail. 
+We will cover these more in detail.
 
 ## Root Collections
 
@@ -102,14 +102,14 @@ This can be used to retrieve the top/root level **published non-modular children
 
 [prism classes="language-yaml line-numbers"]
 content:
-    items: '@root'
+  items: '@root'
 [/prism]
 
 an alias is also valid:
 
 [prism classes="language-yaml line-numbers"]
 content:
-    items: '@root.children'
+  items: '@root.children'
 [/prism]
 
 ##### @root - Top level children + all descendants
@@ -118,7 +118,7 @@ This will effectively get every page in your site as it recursively navigates th
 
 [prism classes="language-yaml line-numbers"]
 content:
-    items: '@root.descendants'
+  items: '@root.descendants'
 [/prism]
 
 ## Self Collections
@@ -129,7 +129,7 @@ This is used to list the **published non-modular children** of the current page:
 
 [prism classes="language-yaml line-numbers"]
 content:
-    items: '@self.children'
+  items: '@self.children'
 [/prism]
 
 ##### @self.descendants - Non-modular children + all descendants of the current page
@@ -138,7 +138,7 @@ Similar to `.children`, the `.descendants` collection will retrieve all the **pu
 
 [prism classes="language-yaml line-numbers"]
 content:
-    items: '@self.descendants'
+  items: '@self.descendants'
 [/prism]
 
 ##### @self.modular - Modular children of the current page
@@ -147,7 +147,7 @@ The inverse of `.children`, this method retrieves only **published modular child
 
 [prism classes="language-yaml line-numbers"]
 content:
-    items: '@self.modular'
+  items: '@self.modular'
 [/prism]
 
 ##### @self.parent - The parent page of the current page
@@ -156,7 +156,7 @@ This is a special case collection because it will always return just the one **p
 
 [prism classes="language-yaml line-numbers"]
 content:
-    items: '@self.parent'
+  items: '@self.parent'
 [/prism]
 
 ##### @self.siblings - All the sibling pages
@@ -165,7 +165,7 @@ This collection will collect all the **published** Pages at the same level of th
 
 [prism classes="language-yaml line-numbers"]
 content:
-    items: '@self.siblings'
+  items: '@self.siblings'
 [/prism]
 
 ## Page Collections
@@ -176,16 +176,16 @@ This collection takes a slug route of a page as an argument and will return all 
 
 [prism classes="language-yaml line-numbers"]
 content:
-    items:
-      '@page': '/blog'
+  items:
+    '@page': '/blog'
 [/prism]
 
 alternatively:
 
 [prism classes="language-yaml line-numbers"]
 content:
-    items:
-      '@page.children': '/blog'
+  items:
+    '@page.children': '/blog'
 [/prism]
 
 ##### @page.self or @page.page - Collection of just the specific page
@@ -194,8 +194,8 @@ This collection takes a slug route of a page as an argument and will return coll
 
 [prism classes="language-yaml line-numbers"]
 content:
-    items:
-      '@page.self': '/blog'
+  items:
+    '@page.self': '/blog'
 [/prism]
 
 ##### @page.descendants - Collection of children + all descendants of a specific page
@@ -204,8 +204,8 @@ This collection takes a slug route of a page as an argument and will return all 
 
 [prism classes="language-yaml line-numbers"]
 content:
-    items:
-      '@page.descendants': '/blog'
+  items:
+    '@page.descendants': '/blog'
 [/prism]
 
 ##### @page.modular - Collection of modular children of a specific page
@@ -214,8 +214,8 @@ This collection takes a slug route of a page as an argument and will return all 
 
 [prism classes="language-yaml line-numbers"]
 content:
-    items:
-      '@page.modular': '/blog'
+  items:
+    '@page.modular': '/blog'
 [/prism]
 
 
@@ -223,8 +223,8 @@ content:
 
 [prism classes="language-yaml line-numbers"]
 content:
-   items:
-      '@taxonomy.tag': foo
+  items:
+    '@taxonomy.tag': foo
 [/prism]
 
 Using the `@taxonomy` option, you can utilize Grav's powerful taxonomy functionality.  This is where the `taxonomy` variable in the [Site Configuration](../../basics/grav-configuration#site-configuration) file comes into play. There **must** be a definition for the taxonomy defined in that configuration file for Grav to interpret a page reference to it as valid.
@@ -233,8 +233,8 @@ By setting `@taxonomy.tag: foo`, Grav will find all the **published pages** in t
 
 [prism classes="language-yaml line-numbers"]
 content:
-    items:
-       '@taxonomy.tag': [foo, bar]
+  items:
+    '@taxonomy.tag': [foo, bar]
 [/prism]
 
 The `content.items` variable can take an array of taxonomies and it will gather up all pages that satisfy these rules. Published pages that have **both** `foo` **and** `bar` tags will be collected.  The [Taxonomy](../taxonomy) chapter will cover this concept in more detail.
@@ -262,7 +262,7 @@ content:
   items:
     - '@self.children'
     - '@taxonomy':
-         category: [blog, featured]
+        category: [blog, featured]
 [/prism]
 
 Additionally, you can filter the collection by using `filter: type: value`. The type can be any of the following: `published`, `non-published`, `visible`, `non-visible`, `modular`, `non-modular`, `routable`, `non-routable`, `type`, `types`, `access`. These correspond to the [Collection-specific methods](#collection-object-methods), and you can use several to filter your collection. They are all either `true` or `false`, except for `type` which takes a single template-name, `types` which takes an array of template-names, and `access` which takes an array of access-levels. For example:
@@ -270,7 +270,7 @@ Additionally, you can filter the collection by using `filter: type: value`. The 
 [prism classes="language-yaml line-numbers"]
  content:
   items: '@self.siblings'
-  filter: 
+  filter:
     published: true
     type: 'blog'
 [/prism]
@@ -279,11 +279,11 @@ Additionally, you can filter the collection by using `filter: type: value`. The 
 
 [prism classes="language-yaml line-numbers"]
 content:
-    order:
-        by: date
-        dir: desc
-    limit: 5
-    pagination: true
+  order:
+    by: date
+    dir: desc
+  limit: 5
+  pagination: true
 [/prism]
 
 Ordering of sub-pages follows the same rules as ordering of folders, the available options are:
@@ -308,15 +308,15 @@ The `content.order.dir` variable controls which direction the ordering should be
 
 [prism classes="language-yaml line-numbers"]
 content:
-    order:
-        by: default
-        custom:
-            - _showcase
-            - _highlights
-            - _callout
-            - _features
-    limit: 5
-    pagination: true
+  order:
+    by: default
+    custom:
+      - _showcase
+      - _highlights
+      - _callout
+      - _features
+  limit: 5
+  pagination: true
 [/prism]
 
 In the above configuration, you can see that `content.order.custom` is defining a **custom manual ordering** to ensure the page is constructed with the **showcase** first, **highlights** section second etc. Please note that if a page is not specified in the custom ordering list, then Grav falls back on the `content.order.by` for the unspecified pages.
@@ -331,10 +331,10 @@ New as of **Grav 0.9.13** is the ability to filter by a date range:
 
 [prism classes="language-yaml line-numbers"]
 content:
-    items: '@self.children'
-    dateRange:
-        start: 1/1/2014
-        end: 1/1/2015
+  items: '@self.children'
+  dateRange:
+    start: 1/1/2014
+    end: 1/1/2015
 [/prism]
 
 You can use any string date format supported by [strtotime()](http://php.net/manual/en/function.strtotime.php) such as `-6 weeks` or `last Monday` as well as more traditional dates such as `01/23/2014` or `23 January 2014`. The dateRange will filter out any pages that have a date outside the provided dateRange.  Both **start** and **end** dates are optional, but at least one should be provided.
@@ -345,16 +345,16 @@ When you create a collection with `content: items:` in your YAML, you are defini
 
 [prism classes="language-yaml line-numbers"]
 content:
-    items: '@self.children'
-    order:
-        by: date
-        dir: desc
-    limit: 10
-    pagination: true
+  items: '@self.children'
+  order:
+    by: date
+    dir: desc
+  limit: 10
+  pagination: true
 
 fruit:
-    items:
-       '@taxonomy.tag': [fruit]
+  items:
+    '@taxonomy.tag': [fruit]
 [/prism]
 
 This sets up **2 collections** for this page, the first uses the default `content` collection, but the second one defines a taxonomy-based collection called `fruit`.  To access these two collections via Twig you can use the following syntax:
@@ -423,7 +423,7 @@ Here is an example taken from the **Learn2** theme's **docs.html.twig** that def
 {% endif %}
 
 {% block navigation %}
-        <div id="navigation">
+    <div id="navigation">
         {% if not progress.isFirst(page.path) %}
             <a class="nav nav-prev" href="{{ progress.nextSibling(page.path).url }}"> <i class="fa fa-chevron-left"></i></a>
         {% endif %}
@@ -431,7 +431,7 @@ Here is an example taken from the **Learn2** theme's **docs.html.twig** that def
         {% if not progress.isLast(page.path) %}
             <a class="nav nav-next" href="{{ progress.prevSibling(page.path).url }}"><i class="fa fa-chevron-right"></i></a>
         {% endif %}
-        </div>
+    </div>
 {% endblock %}
 [/prism]
 
@@ -500,9 +500,9 @@ If you need to programatically generate a collection, you can do so by calling `
 {% set my_collection = page.collection(options) %}
 
 <ul>
-{% for p in my_collection %}
-<li>{{ p.title }}</li>
-{% endfor %}
+    {% for p in my_collection %}
+        <li>{{ p.title }}</li>
+    {% endfor %}
 </ul>
 [/prism]
 
@@ -521,14 +521,14 @@ menu: Home
 {% set my_collection = page.collection(options) %}
 
 {% for p in my_collection %}
-{% if p.header.menu %}
-	<ul>
-	{% if page.slug == p.slug %}
-		<li class="{{ p.slug }} active"><span>{{ p.menu }}</span></li>
-	{% else %}
-		<li class="{{ p.slug }}"><a href="{{ p.url }}">{{ p.menu }}</a></li>
-	{% endif %}
-	</ul>
-{% endif %}
+    {% if p.header.menu %}
+        <ul>
+            {% if page.slug == p.slug %}
+                <li class="{{ p.slug }} active"><span>{{ p.menu }}</span></li>
+            {% else %}
+                <li class="{{ p.slug }}"><a href="{{ p.url }}">{{ p.menu }}</a></li>
+            {% endif %}
+        </ul>
+    {% endif %}
 {% endfor %}
 [/prism]
