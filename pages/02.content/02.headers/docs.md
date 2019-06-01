@@ -411,7 +411,7 @@ Any page header such as this should be documented, and generally, there will be 
 
 Another example would be to store page-specific data that could then be used by Twig in the content of the page.
 
-For example, you might have want to associate some author reference for the page. If you added these YAML settings to the page header:
+For example, you might want to associate some author reference for the page. If you added these YAML settings to the page header:
 
 [prism classes="language-yaml line-numbers"]
 author:
@@ -495,7 +495,7 @@ This will produce the HTML:
 <meta name="fb:app_id" property="fb:app_id" content="your_facebook_app_id" />
 [/prism]
 
-Facebook mostly uses OpenGraph metatags, but there are some Facebook-specific tags and these are support automatically by Grav.
+Facebook mostly uses OpenGraph metatags, but there are some Facebook-specific tags and these are supported automatically by Grav.
 
 #### Twitter Metatag examples
 
