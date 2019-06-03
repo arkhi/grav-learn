@@ -32,7 +32,7 @@ As you should already be familiar with how Grav uses markdown files in folders t
 
 ### Language Configuration
 
-For Grav do to this you must first setup some basic language configuration in your `user/config/system.yaml` file.
+For Grav to do this you must first setup some basic language configuration in your `user/config/system.yaml` file.
 
 [prism classes="language-yaml line-numbers"]
 languages:
@@ -167,7 +167,7 @@ home:
     fr: /page-d-accueil
 [/prism]
 
-This way Grav knows how to route your to the homepage if the active language is English or French.
+This way Grav knows how to route you to the homepage if the active language is English or French.
 
 ### Language-Based Twig Templates
 
@@ -422,7 +422,7 @@ pages.redirect_default_route: true
 
 is set to true in your system.yaml.
 
-Add following to your .htaccess file and adopt the language slugs and domain names to your needs:
+Add the following to your .htaccess file and adapt the language slugs and domain names to your needs:
 
 [prism classes="language-htaccess line-numbers"]
 # http://www.cheat-sheets.org/saved-copy/mod_rewrite_cheat_sheet.pdf
